@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import { useYupValidationResolver } from '@/helpers/validation';
 
 type IProps = {
-  onSuccess: () => void;
+  onSuccess?: () => void;
 };
 
 type DataTypeInputs = {
@@ -80,8 +80,7 @@ const FormCampaign = ({ onSuccess }: IProps) => {
   const { description, email, scheduleDate, editor } = errors;
 
   const submitForm = (data: DataTypeInputs) => {
-    onSuccess();
-    // const { description, email, scheduleDate } = data;
+    onSuccess && onSuccess();
     console.log(data, 'data');
   };
 
@@ -129,12 +128,9 @@ const FormCampaign = ({ onSuccess }: IProps) => {
                 variant="contained"
                 sx={{ margin: '0', paddingLeft: 2 }}
                 className="m-0 ml-2"
-                // @ts-ignore
                 onClick={() => {
-                  const emails = [...fields, { email: inputEmailRef?.current?.value }];
-                  console.log(emails, 'emails');
-                  const xx = append([...fields, { email: inputEmailRef?.current?.value }]);
-                  console.log(xx, 'xxx');
+                  // @ts-ignore
+                  append([...fields, { email: inputEmailRef?.current?.value }]);
                 }}
               >
                 Append

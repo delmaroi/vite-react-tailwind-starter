@@ -17,6 +17,7 @@ export const useYupValidationResolver = (validationSchema: {
       } catch (errors) {
         return {
           values: {},
+          // @ts-ignore
           errors: errors.inner.reduce(
             (allErrors: any, currentError: { path: any; type: any; message: any }) => ({
               ...allErrors,
