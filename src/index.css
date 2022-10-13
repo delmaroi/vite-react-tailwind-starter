@@ -3,3 +3,14 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+.quill.ql-error .ql-toolbar {
+  border: 1px solid red;
+  border-radius: 8px 8px 0 0;
+}
+.quill.ql-error .ql-container {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
+  border-radius: 0 0 8px 8px;
+}
